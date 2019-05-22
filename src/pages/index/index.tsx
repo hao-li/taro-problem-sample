@@ -1,5 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, RichText } from '@tarojs/components'
+import parse from 'mini-html-parser2'
 import './index.scss'
 
 export default class Index extends Component {
@@ -15,8 +16,21 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  componentWillMount () { }
+  constructor () {
+    super(...arguments)
+    this.state = {
+      nodes: []
+    }
+  }
 
+  componentWillMount () {
+    const str = '<div>Hello world!</div>'
+    parse(str, (err, nodes) => {
+      if (!err) {
+        this.setState({nodes})
+      }
+    })
+  }
   componentDidMount () { }
 
   componentWillUnmount () { }
@@ -28,7 +42,7 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+        <RichText nodes={nodes} />
       </View>
     )
   }
