@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, RichText } from '@tarojs/components'
+import { Button, View, RichText } from '@tarojs/components'
 import parse from 'mini-html-parser2'
 import './index.scss'
 
@@ -39,10 +39,18 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
+  onClickAlipay = () => {
+    console.log('onClickAlipay')
+    Taro.navigateTo({
+      url: '/pages/alipay/index'
+    })
+  }
+
   render () {
     return (
       <View className='index'>
         <RichText nodes={nodes} />
+        <Button onClick={this.onClickAlipay.bind(this)}>点击进入支付宝小程序问题页</Button>
       </View>
     )
   }
