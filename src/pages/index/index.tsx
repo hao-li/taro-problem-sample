@@ -46,11 +46,19 @@ export default class Index extends Component {
     })
   }
 
+  onClickSwan = () => {
+    console.log('onClickSwan')
+    Taro.navigateTo({
+      url: '/pages/swan/index'
+    })
+  }
+
   render () {
     return (
       <View className='index'>
         <RichText nodes={nodes} />
         <Button onClick={this.onClickAlipay.bind(this)}>点击进入支付宝小程序问题页</Button>
+        <Button onClick={this.onClickSwan.bind(this)}>点击进入百度小程序问题页</Button>
       </View>
     )
   }
