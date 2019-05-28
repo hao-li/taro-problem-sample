@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { AtTabs, AtTabsPane } from 'taro-ui'
+import { AtTabs, AtTabsPane, AtFab } from 'taro-ui'
 import { View, RichText } from '@tarojs/components'
 import './index.scss'
 
@@ -50,6 +50,10 @@ export default class Swan extends Component {
     const {tab} = this.state
     return (
       <View className='swan'>
+        <View>下方这个 atfab 如果没有背景颜色则不正常</View>
+        <AtFab>
+          <View className='at-fab__icon at-icon at-icon-home'></View>
+        </AtFab>
         <View>下方的 AtTabs 组件，A内容的高度超出了一屏，B内容的高度不足一屏</View>
         <View>期望正常显示</View>
         <View>目前的问题是小程序中A、B的内容都显示在A中，B是空白且高度和A的高度相同</View>
