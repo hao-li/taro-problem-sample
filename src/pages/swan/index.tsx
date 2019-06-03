@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { AtTabs, AtTabsPane, AtFab } from 'taro-ui'
+import { AtInput, AtTabs, AtTabsPane, AtFab } from 'taro-ui'
 import { View, RichText } from '@tarojs/components'
 import './index.scss'
 
@@ -19,6 +19,7 @@ export default class Swan extends Component {
   constructor () {
     super(...arguments)
     this.state = {
+      inputValue: '',
       tab: {
         currentTab: 0,
         list: [{title: 'A'}, {title: 'B'}],
@@ -46,10 +47,22 @@ export default class Swan extends Component {
     this.setState({tab: tab})
   }
 
+  handleInputValueChange = (value) => {
+    console.log('handleInputValueChange', value)
+    this.setState({inputValue: value})
+    return value
+  }
+
   render () {
-    const {tab} = this.state
+    const {inputValue: inputValue, tab} = this.state
     return (
       <View className='swan'>
+        <View>下方这个 at-input 如果无法输入内容则不正常</View>
+        <AtInput
+          title='输入内容'
+          value={inputValue}
+          onChange={this.handleInputValueChange.bind(this)}
+        />
         <View>下方这个 atfab 如果没有背景颜色则不正常</View>
         <AtFab>
           <View className='at-fab__icon at-icon at-icon-home'></View>
