@@ -54,6 +54,7 @@ export default class Index extends Component {
   }
 
   render () {
+    const {nodes} = this.state
     return (
       <View className='index'>
         <RichText nodes={nodes} />

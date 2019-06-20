@@ -28,7 +28,7 @@ export default class Alipay extends Component {
     return (
       <View className='alipay'>
         <View><Text>taro issue #3167</Text></View>
-        <Text>点击左上角返回，观察控制台是否出现『Cannot read property 'compid' of undefined』错误</Text>
+        <Text>点击左上角返回，观察控制台是否出现『Cannot read property &lsquo;compid&rsquo; of undefined』错误</Text>
       </View>
     )
   }
