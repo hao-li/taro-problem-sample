@@ -1,6 +1,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { AtInput, AtTabs, AtTabsPane, AtFab } from 'taro-ui'
-import { View, RichText } from '@tarojs/components'
+import { Swiper, SwiperItem, View, RichText } from '@tarojs/components'
 import './index.scss'
 
 export default class Swan extends Component {
@@ -57,6 +57,26 @@ export default class Swan extends Component {
     const {inputValue: inputValue, tab} = this.state
     return (
       <View className='swan'>
+        <Swiper
+          className='swiper'
+          displayMultipleItems={1.5}
+          indicatorColor='#999'
+          indicatorActiveColor='#333'
+          circular
+          indicatorDots>
+          <SwiperItem>
+            <View className='demo-text-1'>1</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='demo-text-2'>2</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='demo-text-3'>3</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='demo-text-4'>4</View>
+          </SwiperItem>
+        </Swiper>
         <View>下方这个 at-input 如果无法输入内容则不正常</View>
         <AtInput
           title='输入内容'

@@ -1,6 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { Button, View, RichText } from '@tarojs/components'
-import parse from 'mini-html-parser2'
 import './index.scss'
 
 export default class Index extends Component {
@@ -23,14 +22,8 @@ export default class Index extends Component {
     }
   }
 
-  componentWillMount () {
-    const str = '<div>Hello world!</div>'
-    parse(str, (err, nodes) => {
-      if (!err) {
-        this.setState({nodes})
-      }
-    })
-  }
+  componentWillMount () { }
+
   componentDidMount () { }
 
   componentWillUnmount () { }
@@ -54,10 +47,8 @@ export default class Index extends Component {
   }
 
   render () {
-    const {nodes} = this.state
     return (
       <View className='index'>
-        <RichText nodes={nodes} />
         <Button onClick={this.onClickAlipay.bind(this)}>点击进入支付宝小程序问题页</Button>
         <Button onClick={this.onClickSwan.bind(this)}>点击进入百度小程序问题页</Button>
       </View>
