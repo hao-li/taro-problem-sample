@@ -24,7 +24,8 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/alipay/index',
-      'pages/swan/index'
+      'pages/swan/index',
+      'pages/tt/index'
     ],
     window: {
       backgroundTextStyle: 'light',

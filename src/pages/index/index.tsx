@@ -46,11 +46,19 @@ export default class Index extends Component {
     })
   }
 
+  onClickTt = () => {
+    console.log('onClickTt')
+    Taro.navigateTo({
+      url: '/pages/tt/index'
+    })
+  }
+
   render () {
     return (
       <View className='index'>
         <Button onClick={this.onClickAlipay.bind(this)}>点击进入支付宝小程序问题页</Button>
         <Button onClick={this.onClickSwan.bind(this)}>点击进入百度小程序问题页</Button>
+        <Button onClick={this.onClickTt.bind(this)}>点击进入字节跳动小程序问题页</Button>
       </View>
     )
   }
