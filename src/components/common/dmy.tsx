@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import {RichText, View} from '@tarojs/components'
-import he from 'he'
+import {View} from '@tarojs/components'
 import './dmy.scss'
 
 export default class Dmy extends Component {
@@ -10,21 +9,25 @@ export default class Dmy extends Component {
     this.state = { content: '' }
   }
 
-  componentWillMount () { }
+  static getDerivedStateFromProps(props, state) {
+    console.log('getDerivedStateFromProps', props, state)
+    return {content: props.content};
+  }
 
-  componentDidMount () { }
+  componentWillMount () {
+    console.log('componentWillMount')
+    this.getDerivedStateFromProps()
+  }
+
+  componentDidMount () {
+    console.log('componentDidMount')
+  }
 
   componentWillUnmount () { }
 
   componentDidShow () { }
 
   componentDidHide () { }
-
-  componentWillReceiveProps (nextProps) {
-    console.log('componentWillReceiveProps')
-    const content = nextProps.content
-    this.setState({content})
-  }
 
   render () {
     return (
@@ -36,5 +39,5 @@ export default class Dmy extends Component {
 }
 
 Dmy.defaultProps = {
-  content: ''
+  content: 'C'
 }
