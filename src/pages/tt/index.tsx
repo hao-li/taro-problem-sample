@@ -1,5 +1,5 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { AtTabs, AtTabsPane } from 'taro-ui'
+import { AtInput, AtTabs, AtTabsPane } from 'taro-ui'
 import { View } from '@tarojs/components'
 import Dmy from "../../components/common/dmy";
 import './index.scss'
@@ -20,6 +20,7 @@ export default class Swan extends Component {
   constructor () {
     super(...arguments)
     this.state = {
+      inputValue: '',
       tabs: {
         currentTab: 0,
         list: [],
@@ -61,10 +62,18 @@ export default class Swan extends Component {
     this.setState({tabs})
   }
 
+  handleInputChange (value) {
+    this.setState({
+      inputValue: value
+    })
+    // 在小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值
+    return value
+  }
+
   render () {
     const {tabs} = this.state
     return (
-      <View className='swan'>
+      <View className='tt'>
         <AtTabs current={tabs.currentTab} tabList={tabs.list} onClick={this.handleClickTab.bind(this)} swipeable>
           {
             tabs.list.map((t, i) => {
@@ -74,6 +83,14 @@ export default class Swan extends Component {
             })
           }
         </AtTabs>
+        <AtInput
+          name='value'
+          title='标准五个字'
+          type='text'
+          placeholder='标准五个字'
+          value={this.state.inputValue}
+          onChange={this.handleInputChange.bind(this)}
+        />
       </View>
     )
   }
