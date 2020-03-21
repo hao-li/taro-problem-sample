@@ -83,7 +83,7 @@ export default class Swan extends Component {
           value={inputValue}
           onChange={this.handleInputValueChange.bind(this)}
         />
-        <View>下方这个 atfab 如果没有背景颜色则不正常</View>
+        <View>下方这个 atfab 如果不显示 home 图标则不正常</View>
         <AtFab>
           <View className='at-fab__icon at-icon at-icon-home'></View>
         </AtFab>
