@@ -32,12 +32,16 @@ export default class Swan extends Component {
   }
 
 
-  componentWillMount () { }
+  componentWillMount () {
+    console.log('componentWillMount')
+  }
   componentDidMount () { }
 
   componentWillUnmount () { }
 
-  componentDidShow () { }
+  componentDidShow () {
+    console.log('componentDidShow')
+  }
 
   componentDidHide () { }
 
