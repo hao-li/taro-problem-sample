@@ -1,7 +1,15 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { AtInput, AtTabs, AtTabsPane, AtFab } from 'taro-ui'
+import { AtSteps, AtInput, AtTabs, AtTabsPane, AtFab } from 'taro-ui'
 import { Swiper, SwiperItem, View, RichText } from '@tarojs/components'
 import './index.scss'
+
+const steps = [
+  { 'title': '1', 'icon': { value: 'lightning-bolt' }},
+  { 'title': '2', 'icon': { value: 'map-pin' }},
+  { 'title': '3', 'icon': { value: 'credit-card' }},
+  { 'title': '4', 'icon': { value: 'search' }},
+  { 'title': '5', 'icon': { value: 'heart' }}
+]
 
 export default class Swan extends Component {
 
@@ -20,6 +28,7 @@ export default class Swan extends Component {
     super(...arguments)
     this.state = {
       inputValue: '',
+      currentStep: 0,
       tab: {
         currentTab: 0,
         list: [{title: 'A'}, {title: 'B'}],
@@ -57,6 +66,10 @@ export default class Swan extends Component {
     return value
   }
 
+  handleChangeStep = () => {
+    console.log('handleChangeStep')
+  }
+
   render () {
     const {inputValue: inputValue, tab} = this.state
     return (
@@ -87,6 +100,13 @@ export default class Swan extends Component {
           value={inputValue}
           onChange={this.handleInputValueChange.bind(this)}
         />
+        <View className='step'>
+          <AtSteps
+            items={steps}
+            current={this.state.currentStep}
+            onChange={this.handleChangeStep.bind(this)}
+          />
+        </View>
         <View>下方这个 atfab 如果不显示 home 图标则不正常</View>
         <AtFab>
           <View className='at-fab__icon at-icon at-icon-home'></View>
