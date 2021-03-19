@@ -1,32 +1,15 @@
 const config = {
   projectName: 'taro-problem-sample',
-  date: '2019-5-22',
+  date: '2021-3-19',
   designWidth: 750,
   deviceRatio: {
-    '640': 2.34 / 2,
-    '750': 1,
-    '828': 1.81 / 2
+    640: 2.34 / 2,
+    750: 1,
+    828: 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: `dist/${process.env.TARO_ENV}`,
-  babel: {
-    sourceMap: true,
-    presets: [['env', { modules: false }]],
-    plugins: [
-      'transform-decorators-legacy',
-      'transform-class-properties',
-      'transform-object-rest-spread',
-      ['transform-runtime', {
-        "helpers": false,
-        "polyfill": false,
-        "regenerator": true,
-        "moduleName": 'babel-runtime'
-      }]
-    ]
-  },
-  plugins: [
-    '@tarojs/plugin-sass'
-  ],
+  outputRoot: 'dist',
+  plugins: [],
   defineConstants: {
   },
   copy: {
@@ -35,18 +18,26 @@ const config = {
     options: {
     }
   },
+  framework: 'react',
   mini: {
-    webpackChain (chain, webpack) {},
-    cssLoaderOption: {},
     postcss: {
       pxtransform: {
         enable: true,
-        config: {}
+        config: {
+
+        }
       },
       url: {
         enable: true,
         config: {
-          limit: 10240 // 设定转换尺寸上限
+          limit: 1024 // 设定转换尺寸上限
+        }
+      },
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
     }
@@ -54,16 +45,17 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
-    webpackChain (chain, webpack) {},
     postcss: {
       autoprefixer: {
         enable: true,
         config: {
-          browsers: [
-            'last 3 versions',
-            'Android >= 4.1',
-            'ios >= 8'
-          ]
+        }
+      },
+      cssModules: {
+        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        config: {
+          namingPattern: 'module', // 转换模式，取值为 global/module
+          generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
     }

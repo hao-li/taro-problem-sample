@@ -4,6 +4,8 @@ module.exports = {
   },
   defineConstants: {
   },
-  weapp: {},
-  h5: {}
+  mini: {},
+  h5: {
+    esnextModules: ['taro-ui']
+  }
 }
