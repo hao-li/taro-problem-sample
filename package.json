@@ -77,7 +77,8 @@
     "react-native-svg": "~12.1.1",
     "react-native-syan-image-picker": "0.5.3",
     "react-native-unimodules": "~0.14.10",
-    "react-native-webview": "~11.14.3"
+    "react-native-webview": "~11.14.3",
+    "taro-ui": "^3.1.0-beta.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
