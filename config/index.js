@@ -61,7 +61,7 @@ const config = {
     }
   },
   rn: {
-    appName: 'TaroProblemSample',
+    appName: 'taroDemo',
     output: {
       ios: './ios/main.jsbundle',
       iosAssetsDest: './ios',
