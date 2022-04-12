@@ -78,6 +78,10 @@ const config = {
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
       }
+    },
+    resolve: {
+      include: ['taro-ui'], // 处理引用 node_modules/taro-ui 的依赖。
+      enableSvgTransform: true, // 处理图标
     }
   }
 }
